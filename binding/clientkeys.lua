@@ -1,3 +1,5 @@
+-- This module sets key combinations for manipulating windows (which are the clients).
+
 -- Standard Awesome library
 local gears = require("gears")
 local awful = require("awful")
@@ -6,6 +8,9 @@ local awful = require("awful")
 
 local _M = {}
 local modkey = RC.vars.modkey
+
+-- reading
+-- https://awesomewm.org/apidoc/documentation/05-awesomerc.md.html#client_keybindings
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
@@ -17,15 +22,15 @@ function _M.get()
         c:raise()
       end,
       {description = "toggle fullscreen", group = "client"}),
-    awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end,
+    awful.key({ modkey, "Shift"   }, "c", function (c) c:kill() end,
               {description = "close", group = "client"}),
-    awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
+    awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle,
               {description = "toggle floating", group = "client"}),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
               {description = "move to master", group = "client"}),
-    awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
+    awful.key({ modkey,           }, "o", function (c) c:move_to_screen() end,
               {description = "move to screen", group = "client"}),
-    awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end,
+    awful.key({ modkey,           }, "t", function (c) c.ontop = not c.ontop end,
               {description = "toggle keep on top", group = "client"}),
     awful.key({ modkey,           }, "n",
       function (c)

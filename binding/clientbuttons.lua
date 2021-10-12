@@ -1,3 +1,5 @@
+-- This module sets mouse buttons for manipulating windows (which are the clients).
+
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")

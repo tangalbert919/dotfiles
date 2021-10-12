@@ -1,3 +1,5 @@
+-- This is to view all tags. By default, there are nine.
+
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")

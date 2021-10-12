@@ -1,3 +1,5 @@
+-- This module sets global keys. Should work everywhere.
+
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
@@ -13,7 +15,7 @@ local terminal = RC.vars.terminal
 local _M = {}
 
 -- reading
--- https://awesomewm.org/wiki/Global_Keybindings
+-- https://awesomewm.org/apidoc/documentation/05-awesomerc.md.html#global_keybindings
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
