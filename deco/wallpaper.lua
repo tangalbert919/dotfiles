@@ -1,3 +1,5 @@
+-- This module sets the wallpaper.
+
 -- Standard awesome library
 local gears = require("gears")
 local beautiful = require("beautiful")

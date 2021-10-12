@@ -1,3 +1,5 @@
+-- This module is for the title bar.
+
 -- module("anybox.titlebar", package.seeall)
 
 -- Standard awesome library

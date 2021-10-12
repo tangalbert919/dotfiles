@@ -43,10 +43,10 @@ awful.screen.connect_for_each_screen(function(s)
   -- We need one layoutbox per screen.
   s.mylayoutbox = awful.widget.layoutbox(s)
   s.mylayoutbox:buttons(gears.table.join(
-    awful.button({ }, 1, function () awful.layout.inc( 1) end),
-    awful.button({ }, 3, function () awful.layout.inc(-1) end),
-    awful.button({ }, 4, function () awful.layout.inc( 1) end),
-    awful.button({ }, 5, function () awful.layout.inc(-1) end)
+    awful.button({ }, 1, function () awful.layout.inc( 1) end), -- Left click
+    awful.button({ }, 3, function () awful.layout.inc(-1) end), -- Right click
+    awful.button({ }, 4, function () awful.layout.inc( 1) end), -- Scroll up
+    awful.button({ }, 5, function () awful.layout.inc(-1) end)  -- Scroll down
   ))
 
   -- Create a taglist widget (upper left)

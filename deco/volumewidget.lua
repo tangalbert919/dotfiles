@@ -1,4 +1,4 @@
--- Volume Control
+-- Volume Control (https://github.com/deficient/volume-control)
 local awful = require("awful")
 local wibox = require("wibox")
 local gears = require("gears")
@@ -207,8 +207,8 @@ end
 -- text widget
 function vwidget:create_widget(args)
     self.widget_text = args.widget_text or {
-        on  = '% 3d%% ',
-        off = '% 3dM ',
+        on  = 'Volume: % 3d%% ',
+        off = 'Volume: % 3dM ',
     }
     self.widget = wibox.widget.textbox()
     if self.font then
