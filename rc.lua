@@ -26,7 +26,8 @@ require("main.error-handling")
 -- beautiful.init(gears.filesystem.get_themes_dir() .. "zenburn/theme.lua")
 local theme_path = string.format("%s/.config/awesome/themes/custom/theme.lua", os.getenv("HOME"))
 beautiful.init(theme_path)
-beautiful.wallpaper = RC.vars.wallpaper
+-- Uncomment to override theme wallpaper
+--beautiful.wallpaper = RC.vars.wallpaper
 -- }}}
 
 modkey = RC.vars.modkey

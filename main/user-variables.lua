@@ -16,7 +16,7 @@ local _M = {
   -- However, you can use another modifier like Mod1, but it may interact with others.
   modkey = "Mod4",
 
-  -- user defined wallpaper
+  -- User defined wallpaper.
   --wallpaper = nil,
   wallpaper = home .. "/Pictures/ROG_wallpaper_S17_FHD.jpg",
 }
