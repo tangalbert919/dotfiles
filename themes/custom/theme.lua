@@ -1,22 +1,20 @@
--------------------------------
---  "Zenburn" awesome theme  --
---    By Adrian C. (anrxc)   --
--------------------------------
+-- Custom theme
 
 local themes_path = require("gears.filesystem").get_themes_dir()
 local dpi = require("beautiful.xresources").apply_dpi
+local wallpaper_path = string.format("%s/.config/awesome/themes/custom/", os.getenv("HOME"))
 
 -- {{{ Main
 local theme = {}
-theme.wallpaper = themes_path .. "zenburn/zenburn-background.png"
+theme.wallpaper = wallpaper_path .. "eclipse_by_stasyasky_dep2dkg.png"
 -- }}}
 
 -- {{{ Styles
-theme.font      = "roboto 8"
+theme.font      = "terminus 9"
 
 -- {{{ Colors
-theme.fg_normal  = "#DCDCCC"
-theme.fg_focus   = "#F0DFAF"
+theme.fg_normal  = "#67EFF3"
+theme.fg_focus   = "#28EEF5"
 theme.fg_urgent  = "#CC9393"
 theme.bg_normal  = "#3F3F3F"
 theme.bg_focus   = "#1E2320"

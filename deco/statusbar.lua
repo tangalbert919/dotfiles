@@ -33,7 +33,7 @@ local batt = RC.lain.widget.bat {
     if bat_now.ac_status == 1 then
       perc = perc .. " plug"
     end
-    widget:set_markup(markup("#F0EA29", perc))
+    widget:set_markup(markup("#F0EA29", " Battery: " .. perc))
   end
 }
 
