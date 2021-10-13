@@ -15,6 +15,9 @@ local menubar = require("menubar")
 RC = {} -- global namespace, on top before require any modules
 RC.vars = require("main.user-variables")
 
+-- Widgets
+RC.lain = require("lain")
+
 -- {{{ Error handling -- }}}
 require("main.error-handling")
 
@@ -103,6 +106,3 @@ require("main.signals")
 
 -- Autostart
 require("main.autostart")
-
--- Widgets
-RC.lain = require("lain")

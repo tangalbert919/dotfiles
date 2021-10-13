@@ -17,7 +17,14 @@ local deco = {
 
 local taglist_buttons  = deco.taglist()
 local tasklist_buttons = deco.tasklist()
+
+-- Widgets
 local volumecfg = deco.volumectl({device="pulse"})
+local cpu = RC.lain.widget.cpu {
+  settings = function()
+    widget:set_markup("CPU " .. cpu_now.usage)
+  end
+}
 
 local _M = {}
 
@@ -80,6 +87,7 @@ awful.screen.connect_for_each_screen(function(s)
       layout = wibox.layout.fixed.horizontal,
       mykeyboardlayout,
       wibox.widget.systray(),
+      cpu.widget,
       volumecfg.widget,
       mytextclock,
       s.mylayoutbox,
