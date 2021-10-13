@@ -34,9 +34,10 @@ local _M = {}
 -- Create a textclock widget (customized to show seconds)
 -- mytextclock = wibox.widget.textclock()
 mytextclock = wibox.widget {
-  format = '%F %H:%M:%S',
-  widget = wibox.widget.textclock,
-  refresh = 1
+  format  = '%A, %d %B %Y %H:%M:%S',
+  widget  = wibox.widget.textclock,
+  refresh = 1,
+  align   = "center"
 }
 
 awful.screen.connect_for_each_screen(function(s)
@@ -69,9 +70,7 @@ awful.screen.connect_for_each_screen(function(s)
     filter  = awful.widget.tasklist.filter.currenttags,
     buttons = tasklist_buttons,
     style = {
-      border_width = 5,
-      border_color = "#ff0000",
-      shape        = gears.shape.rounded_rect,
+      shape = gears.shape.rounded_rect,
     },
     layout = { -- For the separators
       spacing = 10,
@@ -107,14 +106,13 @@ awful.screen.connect_for_each_screen(function(s)
       s.mytaglist,
       s.mypromptbox,
     },
-    nil, -- Middle widget
+    mytextclock,
     { -- Right widgets
       layout = wibox.layout.fixed.horizontal,
       mykeyboardlayout,
       wibox.widget.systray(),
       cpu.widget,
       volumecfg.widget,
-      mytextclock,
       s.mylayoutbox,
     },
   }
