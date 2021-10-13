@@ -1,3 +1,5 @@
+-- Rules.
+
 -- Standard awesome library
 local awful     = require("awful")
 -- Theme handling library
@@ -6,7 +8,7 @@ local beautiful = require("beautiful")
 local _M = {}
 
 -- reading
--- https://awesomewm.org/apidoc/libraries/awful.rules.html
+-- https://awesomewm.org/apidoc/declarative_rules/ruled.client.html
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 

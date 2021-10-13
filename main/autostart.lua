@@ -1,3 +1,5 @@
+-- Autostart module.
+
 -- Standard awesome library
 local awful = require("awful")
 

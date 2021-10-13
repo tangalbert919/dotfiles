@@ -1,3 +1,5 @@
+-- This module handles layouts.
+
 -- Standard awesome library
 local awful = require("awful")
 

@@ -1,3 +1,5 @@
+-- This module is for the main menu.
+
 -- Standard awesome library
 local awful = require("awful")
 local hotkeys_popup = require("awful.hotkeys_popup").widget
@@ -41,8 +43,7 @@ M.applications = {
   { "Thunderbird", "thunderbird" },
   { "Telegram", "telegram-desktop" },
   { "LibreOffice", "libreoffice" },
-  { "transmission", "transmission-gtk" },
-  { "screenshooter", "xfce4-screenshooter" },
+  { "Transmission", "transmission-gtk" },
   { "Volume Control", "pavucontrol" },
   { "Visual Studio Code", "code"}
 }
