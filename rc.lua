@@ -103,3 +103,6 @@ require("main.signals")
 
 -- Autostart
 require("main.autostart")
+
+-- Widgets
+RC.lain = require("lain")
