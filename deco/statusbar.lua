@@ -67,11 +67,36 @@ awful.screen.connect_for_each_screen(function(s)
   s.mytasklist = awful.widget.tasklist {
     screen  = s,
     filter  = awful.widget.tasklist.filter.currenttags,
-    buttons = tasklist_buttons
+    buttons = tasklist_buttons,
+    style = {
+      border_width = 5,
+      border_color = "#ff0000",
+      shape        = gears.shape.rounded_rect,
+    },
+    layout = { -- For the separators
+      spacing = 10,
+      spacing_widget = {
+        {
+          forced_width = 5,
+          shape        = gears.shape.circle,
+          widget       = wibox.widget.separator
+        },
+        valign = "center",
+        halign = "center",
+        widget = wibox.container.place,
+      },
+      layout = wibox.layout.flex.horizontal
+    }
   }
 
   -- Create the wibox
   s.mywibox = awful.wibar({ position = "top", screen = s })
+
+  -- Bottom wibox for tasklist
+  s.bottomwibox = awful.wibar({
+    position = "bottom",
+    screen = s
+  })
 
   -- Add widgets to the wibox
   s.mywibox:setup {
@@ -82,7 +107,7 @@ awful.screen.connect_for_each_screen(function(s)
       s.mytaglist,
       s.mypromptbox,
     },
-    s.mytasklist, -- Middle widget
+    nil, -- Middle widget
     { -- Right widgets
       layout = wibox.layout.fixed.horizontal,
       mykeyboardlayout,
@@ -92,6 +117,13 @@ awful.screen.connect_for_each_screen(function(s)
       mytextclock,
       s.mylayoutbox,
     },
+  }
+
+  s.bottomwibox:setup {
+    layout = wibox.layout.align.horizontal,
+    s.mytasklist,
+    nil,
+    nil,
   }
 end)
 -- }}}
