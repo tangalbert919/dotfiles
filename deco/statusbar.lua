@@ -22,7 +22,7 @@ local tasklist_buttons = deco.tasklist()
 local volumecfg = deco.volumectl({device="pulse"})
 local cpu = RC.lain.widget.cpu {
   settings = function()
-    widget:set_markup("CPU " .. cpu_now.usage)
+    widget:set_markup("CPU " .. cpu_now.usage .. "%")
   end
 }
 
@@ -61,7 +61,20 @@ awful.screen.connect_for_each_screen(function(s)
   s.mytaglist = awful.widget.taglist {
     screen  = s,
     filter  = awful.widget.taglist.filter.all,
-    buttons = taglist_buttons
+    buttons = taglist_buttons,
+    style   = {
+      shape = gears.shape.rounded_rect,
+      bg_focus = "#F7F7F7",
+      fg_focus = "#AD0808"
+    },
+    layout  = { -- Separators
+      spacing = 5,
+      spacing_widget = {
+        color = "#222222",
+        widget = wibox.widget.separator
+      },
+      layout = wibox.layout.fixed.horizontal
+    }
   }
 
   -- Create a tasklist widget (center)
@@ -72,11 +85,10 @@ awful.screen.connect_for_each_screen(function(s)
     style = {
       shape = gears.shape.rounded_rect,
     },
-    layout = { -- For the separators
+    layout = { -- Separators
       spacing = 10,
       spacing_widget = {
         {
-          forced_width = 5,
           shape        = gears.shape.circle,
           widget       = wibox.widget.separator
         },
