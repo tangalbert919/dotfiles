@@ -207,8 +207,8 @@ end
 -- text widget
 function vwidget:create_widget(args)
     self.widget_text = args.widget_text or {
-        on  = 'Volume: % 3d%% ',
-        off = 'Volume: % 3dM ',
+        on  = 'Volume: %3d%% ',
+        off = 'Volume: %3dM ',
     }
     self.widget = wibox.widget.textbox()
     if self.font then

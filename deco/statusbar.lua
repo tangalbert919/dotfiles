@@ -18,11 +18,22 @@ local deco = {
 local taglist_buttons  = deco.taglist()
 local tasklist_buttons = deco.tasklist()
 
+local markup = RC.lain.util.markup
+
 -- Widgets
 local volumecfg = deco.volumectl({device="pulse"})
 local cpu = RC.lain.widget.cpu {
   settings = function()
-    widget:set_markup("CPU " .. cpu_now.usage .. "%")
+    widget:set_markup(markup("#E72D2D", " CPU " .. cpu_now.usage .. "% "))
+  end
+}
+local batt = RC.lain.widget.bat {
+  settings = function()
+    local perc = bat_now.perc ~= "N/A" and bat_now.perc .. "%" or bat_now.perc
+    if bat_now.ac_status == 1 then
+      perc = perc .. " plug"
+    end
+    widget:set_markup(markup("#F0EA29", perc))
   end
 }
 
@@ -89,6 +100,7 @@ awful.screen.connect_for_each_screen(function(s)
       spacing = 10,
       spacing_widget = {
         {
+          forced_width = 5,
           shape        = gears.shape.circle,
           widget       = wibox.widget.separator
         },
@@ -121,8 +133,8 @@ awful.screen.connect_for_each_screen(function(s)
     mytextclock,
     { -- Right widgets
       layout = wibox.layout.fixed.horizontal,
-      mykeyboardlayout,
       wibox.widget.systray(),
+      batt.widget,
       cpu.widget,
       volumecfg.widget,
       s.mylayoutbox,
