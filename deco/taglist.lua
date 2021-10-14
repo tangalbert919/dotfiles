@@ -1,4 +1,4 @@
--- This module binds mouse keys to the task list
+-- This module binds mouse keys to the tag list
 
 -- {{{ Required libraries
 local gears = require("gears")

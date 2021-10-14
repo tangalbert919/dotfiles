@@ -36,6 +36,12 @@ local batt = RC.lain.widget.bat {
     widget:set_markup(markup("#F0EA29", " Battery: " .. perc))
   end
 }
+local weather = RC.lain.widget.weather {
+  APPID = RC.vars.api_key,
+  city_id = RC.vars.city_id,
+  timeout = 300,
+  units = "imperial",
+}
 
 local _M = {}
 
@@ -137,7 +143,7 @@ awful.screen.connect_for_each_screen(function(s)
       batt.widget,
       cpu.widget,
       volumecfg.widget,
-      s.mylayoutbox,
+      weather.widget,
     },
   }
 
@@ -145,7 +151,7 @@ awful.screen.connect_for_each_screen(function(s)
     layout = wibox.layout.align.horizontal,
     s.mytasklist,
     nil,
-    nil,
+    s.mylayoutbox,
   }
 end)
 -- }}}
