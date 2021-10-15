@@ -57,6 +57,7 @@ mytextclock = wibox.widget {
   align   = "center"
 }
 
+-- TODO: Do not have certain stuff here show up on all screens
 awful.screen.connect_for_each_screen(function(s)
   -- Wallpaper
   set_wallpaper(s)
@@ -94,7 +95,7 @@ awful.screen.connect_for_each_screen(function(s)
     }
   }
 
-  -- Create a tasklist widget (center)
+  -- Create the tasklist (bottom of the screen)
   s.mytasklist = awful.widget.tasklist {
     screen  = s,
     filter  = awful.widget.tasklist.filter.currenttags,
