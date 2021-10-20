@@ -50,12 +50,16 @@ local _M = {}
 -- {{{ Wibar
 -- Create a textclock widget (customized to show seconds)
 -- mytextclock = wibox.widget.textclock()
-mytextclock = wibox.widget {
-  format  = '%A, %d %B %Y %H:%M:%S',
+local mytextclock = wibox.widget {
+  format  = '%F %H:%M:%S',
   widget  = wibox.widget.textclock,
   refresh = 1,
   align   = "center"
 }
+
+local mycalendar = awful.widget.calendar_popup.month()
+mycalendar:attach(mytextclock, "br")
+mycalendar:toggle()
 
 -- TODO: Do not have certain stuff here show up on all screens
 awful.screen.connect_for_each_screen(function(s)
@@ -137,7 +141,7 @@ awful.screen.connect_for_each_screen(function(s)
       s.mytaglist,
       s.mypromptbox,
     },
-    mytextclock,
+    nil,
     { -- Right widgets
       layout = wibox.layout.fixed.horizontal,
       wibox.widget.systray(),
@@ -152,7 +156,11 @@ awful.screen.connect_for_each_screen(function(s)
     layout = wibox.layout.align.horizontal,
     s.mytasklist,
     nil,
-    s.mylayoutbox,
+    {
+      layout = wibox.layout.fixed.horizontal,
+      mytextclock,
+      s.mylayoutbox,
+    }
   }
 end)
 -- }}}
