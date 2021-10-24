@@ -20,7 +20,10 @@ local tasklist_buttons = deco.tasklist()
 
 local markup = RC.lain.util.markup
 
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+
 -- Widgets
+-- TODO: Move to separate module
 local volumecfg = deco.volumectl({device="pulse"})
 local cpu = RC.lain.widget.cpu {
   settings = function()
@@ -33,14 +36,19 @@ local batt = RC.lain.widget.bat {
     if bat_now.ac_status == 1 then
       perc = perc .. " plug"
     end
-    widget:set_markup(markup("#F0EA29", " Battery: " .. perc))
+    widget:set_markup(markup("#F0EA29", " 🔋 " .. perc))
   end
 }
 local weather = RC.lain.widget.weather {
   APPID = RC.vars.api_key,
   city_id = RC.vars.city_id,
   timeout = 300,
-  units = "imperial",
+  weather_na_markup = markup.fontfg("Terminus 10", "#eca4c4", "N/A "),
+  settings = function()
+    descr = weather_now["weather"][1]["description"]:lower()
+    units = math.floor(weather_now["main"]["temp"])
+    widget:set_markup(markup.fontfg("Terminus 10", "#eca4c4", descr .. " @ " .. units .. "°C "))
+  end
 }
 
 local _M = {}
