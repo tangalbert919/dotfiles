@@ -1,6 +1,4 @@
--- This module is for the title bar.
-
--- module("anybox.titlebar", package.seeall)
+-- This module is for the title bar
 
 -- Standard awesome library
 local gears = require("gears")
