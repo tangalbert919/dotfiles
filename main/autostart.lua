@@ -10,5 +10,6 @@ awful.spawn.with_shell(
     --'dex --environment Awesome --autostart --search-paths "$XDG_CONFIG_DIRS/autostart:$XDG_CONFIG_HOME/autostart"' -- https://github.com/jceb/dex
     'picom -b;' ..
     'conky --pause=5;' ..
+    'udiskie &;' ..
     'discord --ignore-gpu-blacklist --disable-features=UseOzonePlatform --enable-features=VaapiVideoDecoder --use-gl=desktop --enable-gpu-rasterization --enable-zero-copy'
 )
