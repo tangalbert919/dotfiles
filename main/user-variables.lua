@@ -16,10 +16,6 @@ local _M = {
   -- However, you can use another modifier like Mod1, but it may interact with others.
   modkey = "Mod4",
 
-  -- User defined wallpaper.
-  --wallpaper = nil,
-  wallpaper = home .. "/Pictures/ROG_wallpaper_S17_FHD.jpg",
-
   -- Weather widget configuration.
   -- A free API key can be obtained from openweathermap.org, along with the ID of your city.
   api_key = "key goes here",
