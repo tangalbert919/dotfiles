@@ -1,3 +1,3 @@
-[submodule "lain"]
-	path = lain
+[submodule "awesome/lain"]
+	path = awesome/lain
 	url = https://github.com/lcpz/lain
