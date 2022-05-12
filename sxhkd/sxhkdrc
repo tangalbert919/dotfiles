@@ -124,7 +124,7 @@ super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
 #
-# volume control?
+# custom controls
 #
 
 # increase volume
@@ -135,4 +135,14 @@ XF86AudioRaiseVolume
 XF86AudioLowerVolume
 	amixer set Master 5%-
 
+# increase brightness
+XF86MonBrightnessUp
+	xbacklight -inc 10
 
+# decrease brightness
+XF86MonBrightnessDown
+	xbacklight -dec 10
+
+# save screenshot
+Print
+	scrot $HOME/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png
