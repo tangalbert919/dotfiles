@@ -8,7 +8,7 @@ super + Return
 
 # program launcher
 super + @space
-	dmenu_run
+	rofi -show run
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -136,11 +136,13 @@ XF86AudioLowerVolume
 	amixer set Master 5%-
 
 # increase brightness
-XF86MonBrightnessUp
+#XF86MonBrightnessUp
+super + F4
 	xbacklight -inc 10
 
 # decrease brightness
-XF86MonBrightnessDown
+#XF86MonBrightnessDown
+super + F3
 	xbacklight -dec 10
 
 # save screenshot
