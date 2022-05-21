@@ -1,0 +1,5 @@
+# Do not include these into the dotfiles.
+chromium-canary/
+discord/
+microsoft-edge/
+
