@@ -50,6 +50,12 @@ local weather = RC.lain.widget.weather {
     widget:set_markup(markup.fontfg("Terminus 10", "#eca4c4", descr .. " @ " .. units .. "°C "))
   end
 }
+local mynetdown = wibox.widget.textbox()
+local net = RC.lain.widget.net {
+  settings = function()
+    widget:set_markup(markup("#32BF57", "NET: DL: " .. net_now.received .. " UL: " .. net_now.sent))
+  end
+}
 
 local _M = {}
 
@@ -157,6 +163,7 @@ awful.screen.connect_for_each_screen(function(s)
       cpu.widget,
       volumecfg.widget,
       weather.widget,
+      net.widget,
     },
   }
 
