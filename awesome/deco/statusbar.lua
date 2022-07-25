@@ -50,7 +50,6 @@ local weather = RC.lain.widget.weather {
     widget:set_markup(markup.fontfg("Terminus 10", "#eca4c4", descr .. " @ " .. units .. "°C "))
   end
 }
-local mynetdown = wibox.widget.textbox()
 local net = RC.lain.widget.net {
   settings = function()
     widget:set_markup(markup("#32BF57", "NET: DL: " .. net_now.received .. " UL: " .. net_now.sent))
@@ -137,37 +136,45 @@ awful.screen.connect_for_each_screen(function(s)
     }
   }
 
-  -- Create the wibox
-  s.mywibox = awful.wibar({ position = "top", screen = s })
+  -- Create the status bar (top of the screen)
+  s.statusbar = awful.wibar({
+    position = "top",
+    screen = s
+  })
 
-  -- Bottom wibox for tasklist
-  s.bottomwibox = awful.wibar({
+  -- Create the taskbar (bottom of the screen)
+  s.taskbar = awful.wibar({
     position = "bottom",
     screen = s
   })
 
-  -- Add widgets to the wibox
-  s.mywibox:setup {
+  -- Setup the status bar
+  s.statusbar:setup {
     layout = wibox.layout.align.horizontal,
-    { -- Left widgets
+    { -- Left side of status bar
       layout = wibox.layout.fixed.horizontal,
       RC.launcher,
       s.mytaglist,
       s.mypromptbox,
     },
-    nil,
-    { -- Right widgets
-      layout = wibox.layout.fixed.horizontal,
-      wibox.widget.systray(),
-      batt.widget,
-      cpu.widget,
-      volumecfg.widget,
-      weather.widget,
-      net.widget,
-    },
+    nil, -- Center of status bar (empty)
+    { -- Right side of status bar
+      layout = awful.widget.only_on_screen,
+      screen = "primary",
+      { -- All widgets go here.
+        layout = wibox.layout.fixed.horizontal,
+        wibox.widget.systray(),
+        batt.widget,
+        cpu.widget,
+        volumecfg.widget,
+        weather.widget,
+        net.widget,
+      },
+    }
   }
 
-  s.bottomwibox:setup {
+  -- Setup the taskbar
+  s.taskbar:setup {
     layout = wibox.layout.align.horizontal,
     s.mytasklist,
     nil,
