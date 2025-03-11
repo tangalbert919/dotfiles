@@ -4,4 +4,21 @@ chromium-canary/
 discord/
 google-chrome/
 microsoft-edge/
-
+RSS Guard 4/
+QtProject/
+libreoffice/
+gtk-3.0/
+gtk-4.0/
+gnome-initial-setup-done
+*.list
+kde*
+btop/btop.log
+monitors.xml*
+pavucontrol.ini
+Code/
+evolution/
+gnome-boxes/
+libvirt/
+QtProject.conf
+user-dirs.dirs
+user-dirs.locale
